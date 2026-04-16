@@ -43,8 +43,11 @@
             color: #ffffff;
             white-space: nowrap;
             width: var(--bubble-width);
-            animation: slideNotification 6000ms infinite cubic-bezier(0.4, 0, 0.2, 1);
+            animation: slideNotification 6000ms infinite cubic-bezier(0.25, 0.1, 0.25, 1);
             will-change: transform;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            transform-style: preserve-3d;
             z-index: 9999;
         }
 
@@ -89,21 +92,33 @@
             letter-spacing: 0.5px;
         }
 
+        .bottom a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .bottom a:hover {
+            opacity: 1;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
         @keyframes slideNotification {
             0% {
-                transform: translateX(140%);
+                transform: translate3d(140%, 0, 0);
             }
             15% {
-                transform: translateX(0);
+                transform: translate3d(0, 0, 0);
             }
             68% {
-                transform: translateX(0);
+                transform: translate3d(0, 0, 0);
             }
             85% {
-                transform: translateX(140%);
+                transform: translate3d(140%, 0, 0);
             }
             100% {
-                transform: translateX(140%);
+                transform: translate3d(140%, 0, 0);
             }
         }
 
@@ -133,7 +148,9 @@
         
         <div class="text">
             <div class="top">IW8 MOD</div>
-            <div class="bottom">discord.gg/demonware</div>
+            <div class="bottom">
+                <a href="https://discord.gg/demonware" target="_blank" rel="noopener">discord.gg/demonware</a>
+            </div>
         </div>
     </div>
 </body>
